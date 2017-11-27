@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <!-- struts的action配置文件 -->
+    <!-- 将action托管给spring -->
+    <constant name="struts.objectFactory" value="spring" />
+
+    <!-- 所有的action都应该放在对应的package下 -->
+    <!--action的class属性不再是具体的类,而是spring配置文件配置的bean id  pakage name 貌似不起作用-->
+    <package name="base" namespace="/user" extends="json-default">
+
+        <action name="add" class="user" method="add">
+            <result type="json">
+                <param name="root">jsonData</param>     <!-- 这里的jsonData对应action里要返回的map对象 -->
+            </result>
+        </action>
+
+        <!--注册-->
+        <action name="reg" class="user" method="register">
+            <result type="json">
+                <param name="root">jsonData</param>     <!-- 这里的jsonData对应action里要返回的map对象 -->
+            </result>
+        </action>
+        <!--登录-->
+        <action name="login" class="user" method="login">
+            <result type="json">
+                <param name="root">jsonData</param>     <!-- 这里的jsonData对应action里要返回的map对象 -->
+            </result>
+        </action>
+
+        <!--上传-->
+        <action name="upload" class="user" method="upload">
+            <result type="json">
+                <param name="root">jsonData</param>     <!-- 这里的jsonData对应action里要返回的map对象 -->
+            </result>
+        </action>
+        <!--上传-->
+        <action name="getUserInfo" class="user" method="getUserInfo">
+            <result type="json">
+                <param name="root">jsonData</param>     <!-- 这里的jsonData对应action里要返回的map对象 -->
+            </result>
+        </action>
+    </package>
+</struts>
